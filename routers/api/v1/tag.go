@@ -6,7 +6,7 @@ import (
 	"github.com/reaperhero/go-gin-example/models"
 	"github.com/reaperhero/go-gin-example/pkg/e"
 	"github.com/reaperhero/go-gin-example/pkg/setting"
-	"github.com/reaperhero/go-gin-example/util"
+	"github.com/reaperhero/go-gin-example/pkg/util"
 	"github.com/unknwon/com"
 	"net/http"
 )
