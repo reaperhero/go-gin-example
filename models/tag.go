@@ -14,12 +14,20 @@ type Tag struct {
 	State      int    `json:"state"`
 }
 
+//gorm所支持的回调方法：
+//创建：BeforeSave、BeforeCreate、AfterCreate、AfterSave
+//更新：BeforeSave、BeforeUpdate、AfterUpdate、AfterSave
+//删除：BeforeDelete、AfterDelete
+//查询：AfterFind
+
+// created_on默认没有值
 func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
 	scope.SetColumn("CreatedOn", time.Now().Unix())
 
 	return nil
 }
 
+// modified_on默认没有值
 func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
 	scope.SetColumn("ModifiedOn", time.Now().Unix())
 

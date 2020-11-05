@@ -1,6 +1,8 @@
 package v1
 
 import (
+	"net/http"
+
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/reaperhero/go-gin-example/models"
@@ -8,7 +10,6 @@ import (
 	"github.com/reaperhero/go-gin-example/pkg/setting"
 	"github.com/reaperhero/go-gin-example/pkg/util"
 	"github.com/unknwon/com"
-	"net/http"
 )
 
 func GetTags(c *gin.Context) {
@@ -40,7 +41,13 @@ func GetTags(c *gin.Context) {
 	})
 }
 
-//新增文章标签
+// @Summary 新增文章标签
+// @Produce  json
+// @Param name query string true "Name"
+// @Param state query int false "State"
+// @Param created_by query int false "CreatedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags [post]
 func AddTag(c *gin.Context) {
 	// /api/v1/tags?name=1&state=1&created_by=test
 	name := c.Query("name")
@@ -71,7 +78,14 @@ func AddTag(c *gin.Context) {
 	})
 }
 
-//修改文章标签
+// @Summary 修改文章标签
+// @Produce  json
+// @Param id path int true "ID"
+// @Param name query string true "ID"
+// @Param state query int false "State"
+// @Param modified_by query string true "ModifiedBy"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags/{id} [put]
 func EditTag(c *gin.Context) {
 	// /api/v1/tags/1?name=edit1&state=0&modified_by=edit1
 	id := com.StrTo(c.Param("id")).MustInt()

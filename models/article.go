@@ -9,6 +9,9 @@ import (
 type Article struct {
 	Model
 
+	//gorm本身做了大量的约定俗成
+	//gorm会通过类名+ID的方式去找到这两个类之间的关联关系
+	//Article有一个结构体成员是Tag，就是我们嵌套在Article里的Tag结构体，我们可以通过Related进行关联查询
 	TagID int `json:"tag_id" gorm:"index"`
 	Tag   Tag `json:"tag"`
 

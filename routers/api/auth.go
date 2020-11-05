@@ -1,8 +1,9 @@
 package api
 
 import (
-	log "github.com/reaperhero/go-gin-example/pkg/logging"
 	"net/http"
+
+	log "github.com/reaperhero/go-gin-example/pkg/logging"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
